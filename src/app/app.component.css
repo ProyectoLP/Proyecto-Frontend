@@ -1,0 +1,8 @@
+.header {
+  background-color: rgb(105, 86, 56);
+}
+
+span,
+a {
+  color: white !important;
+}
