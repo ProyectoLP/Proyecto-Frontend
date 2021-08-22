@@ -1,0 +1,53 @@
+p {
+  position: absolute;
+  width: 459px;
+  height: 224px;
+  left: 254px;
+  top: 238px;
+  text-align: justify;
+  font-family: Abhaya Libre;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 101%;
+  /* or 36px */
+
+  color: #506269;
+}
+
+#cuadrado {
+  position: absolute;
+  width: 492.84px;
+  height: 85.57px;
+  left: 245px;
+  top: 549px;
+
+  background: rgb(105, 86, 56);
+}
+
+#texto {
+  position: absolute;
+  width: 184px;
+  height: 18px;
+  left: 395px;
+  top: 580px;
+
+  font-family: Abhaya Libre;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 101%;
+  /* or 24px */
+
+  text-align: center;
+
+  color: #ffffff;
+}
+
+#imagen {
+  position: absolute;
+  width: 661.65px;
+  height: 566.59px;
+  left: 928px;
+  top: 225px;
+}
