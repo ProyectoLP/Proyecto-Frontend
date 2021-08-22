@@ -6,3 +6,11 @@
   top: 127px;
   background: rgb(105, 86, 56);
 }
+
+#caja2 {
+  position: absolute;
+  width: 1216px;
+  height: 762px;
+  left: 470px;
+  top: 127px;
+}
