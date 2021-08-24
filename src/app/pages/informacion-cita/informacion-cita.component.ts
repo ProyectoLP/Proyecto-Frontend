@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RequestService } from 'src/Services/request-service.service';
 
 @Component({
   selector: 'app-informacion-cita',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformacionCitaComponent implements OnInit {
 
-  constructor() { }
 
   ngOnInit(): void {
   }
 
+
+
 }
+

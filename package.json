@@ -23,6 +23,7 @@
     "@ng-bootstrap/ng-bootstrap": "^9.1.3",
     "@syncfusion/ej2-angular-schedule": "^19.2.56",
     "@syncfusion/ej2-material-theme": "~19.2.55",
+    "angular-notifier": "^9.1.0",
     "bootstrap": "^5.1.0",
     "ngx-bootstrap": "^7.0.0",
     "rxjs": "~6.6.0",

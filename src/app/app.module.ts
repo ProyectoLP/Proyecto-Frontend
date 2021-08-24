@@ -8,6 +8,8 @@ import { InformacionCitaComponent } from './pages/informacion-cita/informacion-c
 import { HorariosDisponiblesComponent } from './pages/horarios-disponibles/horarios-disponibles.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScheduleModule, RecurrenceEditorModule , DayService , WeekService , WorkWeekService , MonthService , MonthAgendaService } from '@syncfusion/ej2-angular-schedule';
+import { HttpClientModule } from '@angular/common/http';
+import { NotifierModule } from 'angular-notifier';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,19 @@ import { ScheduleModule, RecurrenceEditorModule , DayService , WeekService , Wor
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    HttpClientModule, NotifierModule.withConfig({
+      position: {
+        horizontal: {
+          position: 'right',
+          distance: 12
+        },
+        vertical: {
+          position: 'bottom',
+          distance: 12,
+          gap: 10
+        }
+      }
+    }),
     ScheduleModule, RecurrenceEditorModule,
   ],
   providers: [DayService , WeekService , WorkWeekService , MonthService , MonthAgendaService],

@@ -1,9 +1,17 @@
 <section id="caja">
-    <h5 style="color: white; margin: 10px;"> Seleccione un tipo de abogado :</h5>
+    <h5 style="color: white; margin: 10px; text-decoration: underline;"> Seleccione un tipo de abogado :</h5>
     <br><br>
-    <div class="row text-center">
-        <p style="color: white; font-size: 20px;"> PENALES </p>
+
+
+    <div   class="row text-center" *ngFor="let div of tiposAbogados; let i = index">
+        <a style="color: white; font-size: 22px;"> {{ div.nombreTipo }}</a>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
+
+    
 
 </section>
 <section id="caja2"> <ejs-schedule width='1400px' height='100%' [selectedDate]='selectedDate' [eventSettings]='eventSettings'></ejs-schedule></section>

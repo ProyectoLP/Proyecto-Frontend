@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventSettingsModel, DayService, WeekService, WorkWeekService, MonthService, AgendaService } from '@syncfusion/ej2-angular-schedule';
+import { RequestService } from 'src/Services/request-service.service';
+import { DataManager, ODataV4Adaptor, Query } from '@syncfusion/ej2-data';
 
 @Component({
   selector: 'app-horarios-disponibles',
@@ -8,45 +10,58 @@ import { EventSettingsModel, DayService, WeekService, WorkWeekService, MonthServ
   styleUrls: ['./horarios-disponibles.component.css']
 })
 export class HorariosDisponiblesComponent implements OnInit {
-  public selectedDate: Date = new Date(2018, 1, 15);
-  public eventSettings: EventSettingsModel = {
-    allowEditing: false,
-    allowDeleting:false,
-    allowAdding:false,
-      dataSource: [
-      {
-          Id: 1,
-          Subject: 'Explosion of Betelgeuse Star <a> hola </a>',
-          StartTime: new Date(2018, 1, 15, 9, 30),
-        
-          EndTime: new Date(2018, 1, 15, 11, 0)
-      }, {
-          Id: 2,
-          Subject: 'Thule Air Crash Report',
-          StartTime: new Date(2018, 1, 12, 12, 0),
-          EndTime: new Date(2018, 1, 12, 14, 0)
-      }, {
-          Id: 3,
-          Subject: 'Blue Moon Eclipse',
-          StartTime: new Date(2018, 1, 13, 9, 30),
-          EndTime: new Date(2018, 1, 13, 11, 0)
-      }, {
-          Id: 4,
-          Subject: 'Meteor Showers in 2018',
-          StartTime: new Date(2018, 1, 14, 13, 0),
-          EndTime: new Date(2018, 1, 14, 14, 30)
-      },{
-        Id: 5,
-        Subject: 'Abogado Alcivar',
-        StartTime: new Date(2018, 1, 18, 13, 0),
-        EndTime: new Date(2018, 1, 18, 14, 0)
-    }]
-  };
+
+  tiposAbogados : any = [];
+  horarios : any =[];
+  public selectedDate: Date = new Date(2021, 7, 24);
+  // public eventSettings: EventSettingsModel = {
+  //   allowEditing: false,
+  //   allowDeleting:false,
+  //   allowAdding:false,
+  //     dataSource: this.horarios
+  // };
+  
+
+  // public selectedDate: Date = new Date(2020, 9, 20);
+
+  private dataManager: DataManager = new DataManager({
+    url: 'http://localhost:8000/api/horarios-tipoabogado/6',
+    adaptor: new ODataV4Adaptor,
+    crossDomain: true
+ });
+ public eventSettings: EventSettingsModel = { dataSource: this.dataManager };
+ 
+
+ 
+  
+  constructor(public requestServ: RequestService) { }
+
   ngOnInit(): void {
    
-  
+    this.getProveedores()
+    this.getHorarios();
+    
   }
  
+
  
- 
-   }
+  async getProveedores() {
+    const response: any = await this.requestServ.getProveedores();
+    if (response[0]) {
+      this.tiposAbogados = response[1]
+      console.log(this.tiposAbogados)
+    
+    }
+  }
+
+  async getHorarios() {
+    const response: any = await this.requestServ.getHorariosporTipo();
+    if (response[0]) {
+      this.horarios = response[1]
+      console.log(this.horarios)
+   
+    }
+  }
+
+  
+}
